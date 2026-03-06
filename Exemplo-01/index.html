@@ -1,3 +1,5 @@
+<input type="text" id="question" placeholder="Digite sua pergunta aqui..." />
+<button id="start">Perguntar</button>
 <output id="output"></output>
 <!-- https://www.jsdelivr.com/package/npm/markdown -->
 <script src="https://cdn.jsdelivr.net/npm/markdown@0.5.0/lib/markdown.min.js"></script>
@@ -5,12 +7,16 @@
 <script>
     const output = document.getElementById('output');
 
-    ; (async () => {
+    document.getElementById("start").addEventListener("click",(async () => {
         const params = await LanguageModel.params()
         console.log("Language Model Params:", params);
 
-        const temperature = params.defaultTemperature
-        const topK = params.defaultTopK
+        
+
+        const temperature = 1
+        const topK = 3
+
+        
 
         const initialPrompts = [
             {
@@ -19,7 +25,8 @@
             }
         ]
 
-        const question = 'Quem inventou o JavaScript?'
+        
+        const question = document.getElementById('question').value;
         output.innerHTML = "Gerando resposta...";
 
         const session = await LanguageModel.create({
@@ -35,14 +42,15 @@
                 content: question
             }
         ])
+
         output.innerHTML = ""
         let fullText = ""
         for await (const token of responseStream) {
             fullText += token;
             output.innerHTML = markdown.toHTML(fullText);
 
-            // console.log(token)
+             console.log(token)
         }
-    })();
+    }));
 
 </script>

@@ -3,7 +3,11 @@ import { TranslationService } from './services/translationService.js';
 import { View } from './views/view.js';
 import { FormController } from './controllers/formController.js';
 
-(async function main() {
+document.getElementById("start").addEventListener("click",(async function main() {
+
+        document.getElementById("start").style.display = "none";
+        document.getElementById("question-form").style.display = "block";
+        
     // Initialize services and view
     const aiService = new AIService();
     const translationService = new TranslationService();
@@ -37,4 +41,4 @@ import { FormController } from './controllers/formController.js';
     controller.setupEventListeners();
 
     console.log('Application initialized successfully');
-})();
+}));
