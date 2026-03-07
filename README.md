@@ -112,8 +112,21 @@ Projeto com arquitetura MVC e recursos avançados:
 - **Tradução automática** para português
 - Detecção automática de idioma
 - Streaming de resposta e tradução
+- **Gravação de voz** integrada com botão de microfone
+- **Preview de arquivos** anexados (imagens e áudios)
 
-**Arquivos principais:** [`index.js`](Exemplo-03/index.js), [`controllers/formController.js`](Exemplo-03/controllers/formController.js), [`services/aiService.js`](Exemplo-03/services/aiService.js), [`services/translationService.js`](Exemplo-03/services/translationService.js), [`views/view.js`](Exemplo-03/views/view.js)
+**Arquivos principais:** [`index.js`](Exemplo-03/index.js), [`controllers/formController.js`](Exemplo-03/controllers/formController.js), [`services/aiService.js`](Exemplo-03/services/aiService.js), [`services/translationService.js`](Exemplo-03/services/translationService.js), [`views/view.js`](Exemplo-03/views/view.js), [`components/VoiceRecorder.js`](Exemplo-03/components/VoiceRecorder.js), [`components/VoiceRecorder.css`](Exemplo-03/components/VoiceRecorder.css)
+
+#### Componente VoiceRecorder
+
+O componente [`VoiceRecorder.js`](Exemplo-03/components/VoiceRecorder.js) fornece funcionalidade de gravação de voz usando a **MediaRecorder API**, com:
+
+- **Gravação de áudio** diretamente no navegador
+- **Interface visual** com botão de microfone e animação de gravação
+- **Integração** com o formulário como arquivo anexado
+- **Callbacks** para eventos: `onStart`, `onStop`, `onError`
+- **Controle** de gravação: `start()`, `stop()`, `toggle()`
+- **Formato** de saída: arquivo WebM otimizado para envio à IA
 
 Exemplo mais avançado, mostrando organização de código e uso de múltiplas APIs.
 

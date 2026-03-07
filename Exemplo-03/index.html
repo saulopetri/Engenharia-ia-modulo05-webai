@@ -2,19 +2,28 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Metadados essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web AI Demo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components/VoiceRecorder.css">
 </head>
 
 <body>
+    <!-- Container principal da aplicação -->
     <div class="container">
+        <!-- Cabeçalho com título -->
         <h1>🤖 Web AI Demo</h1>
+        
+        <!-- Botão inicial para iniciar a conversa -->
         <div>
             <button id="start">Iniciar Conversa</button>
         </div>
+        
+        <!-- Formulário principal com parâmetros, upload e entrada de pergunta -->
         <form id="question-form" style='display:none'>
+            <!-- Seção de parâmetros da IA -->
             <div class="parameters">
                 <div class="param-group">
                     <label for="temperature">Temperature: <span id="temp-value" class="value-display"></span></label>
@@ -31,6 +40,7 @@
                 </div>
             </div>
 
+            <!-- Grupo de input de arquivo (imagem ou áudio) -->
             <div class="file-input-group">
                 <label>📎 Anexar Arquivo (Imagem ou Áudio em inglês):</label>
                 <div class="file-input-wrapper">
@@ -44,19 +54,27 @@
                 <div class="file-preview" id="file-preview"></div>
             </div>
 
+            <!-- Área de entrada da pergunta com botão de gravação de voz -->
             <label for="question">Converse com ela:</label>
-            <textarea name="question" id="question" placeholder="Digite sua pergunta aqui..."></textarea>
+            <div class="question-input-wrapper">
+                <textarea name="question" id="question" placeholder="Digite ou grave sua pergunta..."></textarea>
+                <button type="button" id="voice-record-btn" class="voice-mic-btn" aria-label="Gravar áudio">🎤</button>
+            </div>
 
+            <!-- Botão de envio do formulário -->
             <button type="submit" id="ask-button">Enviar</button>
         </form>
 
+        <!-- Área de exibição da resposta da IA -->
         <div id="output"></div>
 
+        <!-- Rodapé com copyright -->
         <footer class="copyright">
             Erick Wendel - Engenharia de Software com IA Aplicada - UNIPDS - <span id="year"></span>
         </footer>
     </div>
 
+    <!-- Script principal da aplicação -->
     <script type="module" src="./index.js"></script>
 </body>
 

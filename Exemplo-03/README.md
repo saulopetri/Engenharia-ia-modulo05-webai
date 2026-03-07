@@ -4,6 +4,12 @@ Aplicação web que utiliza **APIs nativas de IA do Chrome (Gemini Nano / Prompt
 
 O projeto segue uma arquitetura simples inspirada em **MVC**, separando responsabilidades entre **Services, Controllers e View**.
 
+## Novidades
+
+- **Gravação de voz** integrada com botão de microfone
+- **Pré-visualização de arquivos** anexados (imagens e áudios)
+- **Componente VoiceRecorder** reutilizável
+
 ## Contexto acadêmico
 Este projeto faz parte de um conjunto de **exemplos de aplicações apresentados durante a pós-graduação**, demonstrados pelo professor **Erick Wendel**.
 
@@ -16,6 +22,8 @@ Demonstrar o uso das **Web AI APIs experimentais do Chrome** diretamente no nave
 - envio de imagem ou áudio
 - tradução automática para português
 - controle de parâmetros do modelo
+- gravação de voz diretamente no navegador
+- pré-visualização de arquivos anexados
 
 ## Tecnologias utilizadas
 - JavaScript (ES Modules)
@@ -59,12 +67,12 @@ Interface principal da aplicação.
 index.js
 Ponto de entrada. Inicializa serviços, view e controller.
 
-controllers/  
-formController.js  
+controllers/
+formController.js
 Responsável por controlar o fluxo do formulário e interação do usuário.
 
-services/  
-aiService.js  
+services/
+aiService.js
 Gerencia interação com a API de modelo de linguagem do Chrome.
 
 translationService.js
@@ -74,13 +82,20 @@ views/
 view.js
 Responsável pela manipulação do DOM.
 
+components/
+VoiceRecorder.js
+Componente reutilizável para gravação de áudio usando MediaRecorder API.
+
+VoiceRecorder.css
+Estilos do componente de gravação de voz.
+
 generate-devcontainer.js
 Script utilizado para gerar automaticamente a configuração do container com base nas dependências definidas no `package.json`.
 
 .devcontainer/
 Configuração do ambiente de desenvolvimento com **Dev Containers** (gerada automaticamente).
 
-style.css  
+style.css
 Estilos da interface.
 
 ## Fluxo da aplicação
@@ -90,7 +105,7 @@ Estilos da interface.
    - verifica suporte às APIs
    - inicializa tradução
    - carrega parâmetros do modelo
-3. Usuário digita pergunta ou envia imagem/áudio.
+3. Usuário digita pergunta, grava voz ou envia imagem/áudio.
 4. Controller envia dados para o **AIService**.
 5. O modelo responde em **streaming**.
 6. A resposta é exibida em tempo real.
@@ -114,11 +129,22 @@ Limita a seleção às K palavras mais prováveis.
 É possível anexar:
 
 - imagens
-- áudio
+- áudio (gravado ou selecionado)
 
 O arquivo é enviado junto com o prompt para o modelo.
 
-A interface mostra uma **pré-visualização do arquivo** antes do envio.
+A interface mostra uma **pré-visualização do arquivo** antes do envio, com opção de remover.
+
+## Gravação de voz
+
+O botão de microfone permite gravar áudio diretamente no navegador:
+
+1. Clique no botão 🎤 para iniciar a gravação
+2. O botão muda para vermelho com animação de pulso
+3. Clique novamente para parar a gravação
+4. O áudio gravado é automaticamente anexado ao formulário
+
+O componente **VoiceRecorder** usa a **MediaRecorder API** para capturar áudio no formato WebM, ideal para envio ao modelo de IA.
 
 ## Streaming de resposta
 
