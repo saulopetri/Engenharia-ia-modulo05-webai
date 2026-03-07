@@ -78,13 +78,26 @@ Aplicação mais completa com:
 
 - Controles de **temperature** e **topK**
 - Botão para interromper geração
+- **Interação por voz** usando Web Speech API
 - Servidor local com `http-server`
 - Configuração com **Dev Containers**
 - Interface com tema escuro
 
-**Arquivos principais:** [`index.html`](Exemplo-02/index.html), [`index.js`](Exemplo-02/index.js), [`style.css`](Exemplo-02/style.css)
+**Arquivos principais:** [`index.html`](Exemplo-02/index.html), [`index.js`](Exemplo-02/index.js), [`style.css`](Exemplo-02/style.css), [`components/VoiceRecorder.js`](Exemplo-02/components/VoiceRecorder.js), [`components/VoiceRecorder.css`](Exemplo-02/components/VoiceRecorder.css)
 
-Demonstra como gerenciar parâmetros e ciclo de vida da sessão.
+#### Componente VoiceRecorder
+
+O componente [`VoiceRecorder.js`](Exemplo-02/components/VoiceRecorder.js) encapsula a funcionalidade de reconhecimento de voz usando a **Web Speech API**, fornecendo uma interface simples com:
+
+- **Transcrição contínua** e resultados intermediários
+- **Suporte a múltiplos idiomas** (configurável)
+- **Callbacks** para eventos: `onStart`, `onResult`, `onEnd`, `onError`
+- **Controle** de gravação: `start()`, `stop()`, `toggle()`, `clear()`
+- **Integração** com o campo de texto da aplicação
+
+O componente é reutilizável e pode ser facilmente adaptado para outros projetos que necessitem de entrada por voz no navegador.
+
+Demonstra como gerenciar parâmetros e ciclo de vida da sessão, além de integrar reconhecimento de voz.
 
 ---
 
@@ -175,6 +188,7 @@ O script [`generate-devcontainer.js`](Exemplo-02/generate-devcontainer.js) gera 
   - `LanguageModel` (Gemini Nano)
   - `Translator`
   - `LanguageDetector`
+- **Web Speech API** (reconhecimento de voz)
 - **Markdown.js** (via CDN)
 - **http-server** (para servir arquivos localmente)
 - **Dev Containers** (opcional, para ambiente padronizado)
