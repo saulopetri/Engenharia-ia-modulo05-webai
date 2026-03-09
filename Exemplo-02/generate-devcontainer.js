@@ -72,6 +72,8 @@ const workspacePath = `/workspaces/${projectName}`;
 // Configuração completa do DevContainer
 const devcontainer = {
   name: projectName,
+  // Argumentos para execução do container
+  runArgs: ["--name", projectName],
   // Monta o workspace local no contêiner
   workspaceMount: `source=${process.env.WORKSPACE_FOLDER || '${localWorkspaceFolder}'},target=${workspacePath},type=bind`,
   workspaceFolder: workspacePath,

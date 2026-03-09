@@ -1,7 +1,11 @@
 {
-  "name": "webai-modulo05-web03",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/webai-modulo05-web03,type=bind",
-  "workspaceFolder": "/workspaces/webai-modulo05-web03",
+  "name": "modulo05-exemplo03",
+  "runArgs": [
+    "--name",
+    "modulo05-exemplo03"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/modulo05-exemplo03,type=bind",
+  "workspaceFolder": "/workspaces/modulo05-exemplo03",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
   "features": {},
   "forwardPorts": [],
