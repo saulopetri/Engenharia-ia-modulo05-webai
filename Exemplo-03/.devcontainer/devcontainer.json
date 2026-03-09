@@ -1,5 +1,7 @@
 {
   "name": "webai-modulo05-web03",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/webai-modulo05-web03,type=bind",
+  "workspaceFolder": "/workspaces/webai-modulo05-web03",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
   "features": {},
   "forwardPorts": [],
@@ -11,5 +13,6 @@
       ]
     }
   },
-  "postCreateCommand": "npm install"
+  "updateRemoteUserUID": true,
+  "postCreateCommand": "mkdir -p node_modules && npm install"
 }

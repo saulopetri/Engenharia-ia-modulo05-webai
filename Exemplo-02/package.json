@@ -1,6 +1,7 @@
 {
   "name": "webai-modulo05-web02",
   "version": "0.0.1",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "npx http-server ."
