@@ -1,0 +1,42 @@
+{
+  "name": "modulo05-exemplo02",
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    // Formata o código automaticamente ao salvar
+    "editor.formatOnSave": true,
+    // Tamanho da tabulação (2 espaços)
+    "editor.tabSize": 2,
+    // Auto-salvamento após 1 segundo de delay
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    // Suporte a Emmet em arquivos JavaScript (JSX)
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    // Terminal padrão no Windows
+    "terminal.integrated.defaultProfile.windows": "PowerShell"
+  },
+  "extensions": {
+    "recommendations": [
+      // ESLint para análise estática de código
+      "dbaeumer.vscode-eslint",
+      // Prettier para formatação automática
+      "esbenp.prettier-vscode"
+    ]
+  },
+  "launch": {
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Abrir Chrome no localhost",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}"
+      }
+    ]
+  }
+}
